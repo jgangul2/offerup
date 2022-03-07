@@ -4,6 +4,8 @@ RSpec.describe SaleItem, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:buyer) }
+
     it { should belong_to(:seller) }
 
     it { should belong_to(:category) }

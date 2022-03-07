@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :items_purchased,
+             :class_name => "SaleItem",
+             :foreign_key => "buyer_id",
+             :dependent => :destroy
+
   has_many   :items_for_sale,
              :class_name => "SaleItem",
              :foreign_key => "seller_id",
