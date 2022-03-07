@@ -83,7 +83,7 @@
     <%= f.label :item_category %>
 
     <!-- Input for item_category start -->
-    <%= f.text_field :item_category, class: "form-control" %>
+    <%= f.collection_select :item_category, Category.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for item_category end -->
   </div>
   <!-- Label and input for item_category end -->

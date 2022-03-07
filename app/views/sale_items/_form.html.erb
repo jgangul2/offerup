@@ -224,7 +224,7 @@
 
     <%= f.label :item_category %>
     <!-- Input for item_category start -->
-    <%= f.number_field :item_category, class: item_category_class, placeholder: "Enter item category" %>
+    <%= f.collection_select :item_category, Category.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for item_category end -->
     <% if item_category_was_invalid %>
       <% sale_item.errors.full_messages_for(:item_category).each do |message| %>
