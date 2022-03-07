@@ -1,6 +1,9 @@
 class SaleItem < ApplicationRecord
   # Direct associations
 
+  belongs_to :category,
+             :foreign_key => "item_category"
+
   # Indirect associations
 
   # Validations
