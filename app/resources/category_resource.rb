@@ -6,6 +6,10 @@ class CategoryResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :items_in_category,
+             resource: SaleItemResource,
+             foreign_key: :item_category
+
   # Indirect associations
 
 end

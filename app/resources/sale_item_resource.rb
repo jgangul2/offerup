@@ -14,6 +14,9 @@ class SaleItemResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :category,
+             foreign_key: :item_category
+
   # Indirect associations
 
 end
