@@ -8,6 +8,10 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :items_for_sale,
+             resource: SaleItemResource,
+             foreign_key: :seller_id
+
   has_many   :recieved_messages,
              resource: MessageResource,
              foreign_key: :recipient_user_id
