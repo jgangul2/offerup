@@ -3,7 +3,7 @@ class SaleItemsController < ApplicationController
 
   # GET /sale_items
   def index
-    @sale_items = SaleItem.all
+    @sale_items = SaleItem.page(params[:page]).per(10)
   end
 
   # GET /sale_items/1
