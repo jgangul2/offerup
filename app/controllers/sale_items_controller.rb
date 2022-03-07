@@ -24,7 +24,12 @@ class SaleItemsController < ApplicationController
     @sale_item = SaleItem.new(sale_item_params)
 
     if @sale_item.save
-      redirect_to @sale_item, notice: 'Sale item was successfully created.'
+      message = 'SaleItem was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @sale_item, notice: message
+      end
     else
       render :new
     end

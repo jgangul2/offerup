@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @sale_item = SaleItem.new
+    @message = Message.new
   end
 
   # GET /users/new
