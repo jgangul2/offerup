@@ -8,6 +8,10 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :sent_messages,
+             resource: MessageResource,
+             foreign_key: :sender_user_id
+
   # Indirect associations
 
 end
