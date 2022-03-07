@@ -6,61 +6,43 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Sale price</dt>
-      <!-- Display sale_price start -->
       <dd><%= sale_item.sale_price %></dd>
-      <!-- Display sale_price end -->
 
       <dt>Item status</dt>
-      <!-- Display item_status start -->
       <dd><%= sale_item.item_status %></dd>
-      <!-- Display item_status end -->
 
       <dt>Seller</dt>
-      <!-- Display seller_id start -->
       <dd>
         <% if @sale_item.seller.present? %>
           <%= link_to sale_item.seller, sale_item.seller %>
         <% end %>
       </dd>
-      <!-- Display seller_id end -->
 
       <dt>Buyer</dt>
-      <!-- Display buyer_id start -->
       <dd>
         <% if @sale_item.buyer.present? %>
           <%= link_to sale_item.buyer, sale_item.buyer %>
         <% end %>
       </dd>
-      <!-- Display buyer_id end -->
 
       <dt>Item title</dt>
-      <!-- Display item_title start -->
       <dd><%= sale_item.item_title %></dd>
-      <!-- Display item_title end -->
 
       <dt>Location</dt>
-      <!-- Display location start -->
       <dd><%= sale_item.location %></dd>
-      <!-- Display location end -->
 
       <dt>Photo link</dt>
-      <!-- Display photo_link start -->
       <dd><%= sale_item.photo_link %></dd>
-      <!-- Display photo_link end -->
 
       <dt>Item description</dt>
-      <!-- Display item_description start -->
       <dd><%= sale_item.item_description %></dd>
-      <!-- Display item_description end -->
 
       <dt>Item category</dt>
-      <!-- Display item_category start -->
       <dd>
         <% if @sale_item.category.present? %>
           <%= link_to sale_item.category, sale_item.category %>
         <% end %>
       </dd>
-      <!-- Display item_category end -->
 
     </dl>
 
@@ -69,21 +51,17 @@
         <%= link_to_show_or_back sale_item, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link sale_item start -->
       <div class="col">
         <%= link_to edit_sale_item_url(sale_item), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link sale_item end -->
 
-      <!-- Delete link sale_item start -->
       <div class="col">
         <%= link_to sale_item, method: :delete, data: { confirm: "Do you really want to delete this sale_item?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link sale_item end -->
     </div>
   </div>
 

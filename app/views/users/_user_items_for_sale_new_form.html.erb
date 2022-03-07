@@ -1,92 +1,54 @@
-<!-- Form sale_item start -->
 <%= form_with(model: @sale_item, local: true) do |f| %>
-<!-- Form sale_item end -->
 
-  <!-- Label and input for sale_price start -->
   <div class="form-group">
     <%= f.label :sale_price %>
 
-    <!-- Input for sale_price start -->
     <%= f.text_field :sale_price, class: "form-control" %>
-    <!-- Input for sale_price end -->
   </div>
-  <!-- Label and input for sale_price end -->
 
-  <!-- Label and input for item_status start -->
   <div class="form-group">
     <%= f.label :item_status %>
 
-    <!-- Input for item_status start -->
     <%= f.text_field :item_status, class: "form-control" %>
-    <!-- Input for item_status end -->
   </div>
-  <!-- Label and input for item_status end -->
 
-  <!-- Label and input for seller_id start -->
-  <!-- Input for seller_id start -->
   <%= f.hidden_field :seller_id, value: @user.id %>
-  <!-- Input for seller_id end -->
-  <!-- Label and input for seller_id end -->
 
-  <!-- Label and input for buyer_id start -->
   <div class="form-group">
     <%= f.label :buyer_id %>
 
-    <!-- Input for buyer_id start -->
     <%= f.text_field :buyer_id, class: "form-control" %>
-    <!-- Input for buyer_id end -->
   </div>
-  <!-- Label and input for buyer_id end -->
 
-  <!-- Label and input for item_title start -->
   <div class="form-group">
     <%= f.label :item_title %>
 
-    <!-- Input for item_title start -->
     <%= f.text_field :item_title, class: "form-control" %>
-    <!-- Input for item_title end -->
   </div>
-  <!-- Label and input for item_title end -->
 
-  <!-- Label and input for location start -->
   <div class="form-group">
     <%= f.label :location %>
 
-    <!-- Input for location start -->
     <%= f.text_field :location, class: "form-control" %>
-    <!-- Input for location end -->
   </div>
-  <!-- Label and input for location end -->
 
-  <!-- Label and input for photo_link start -->
   <div class="form-group">
     <%= f.label :photo_link %>
 
-    <!-- Input for photo_link start -->
     <%= f.text_field :photo_link, class: "form-control" %>
-    <!-- Input for photo_link end -->
   </div>
-  <!-- Label and input for photo_link end -->
 
-  <!-- Label and input for item_description start -->
   <div class="form-group">
     <%= f.label :item_description %>
 
-    <!-- Input for item_description start -->
     <%= f.text_field :item_description, class: "form-control" %>
-    <!-- Input for item_description end -->
   </div>
-  <!-- Label and input for item_description end -->
 
-  <!-- Label and input for item_category start -->
   <div class="form-group">
     <%= f.label :item_category %>
 
-    <!-- Input for item_category start -->
     <%= f.collection_select :item_category, Category.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for item_category end -->
   </div>
-  <!-- Label and input for item_category end -->
 
   <%= f.submit "Create sale item", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
