@@ -14,6 +14,9 @@ class SaleItemResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :buyer,
+             resource: UserResource
+
   belongs_to :seller,
              resource: UserResource
 
