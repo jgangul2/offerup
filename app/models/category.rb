@@ -2,9 +2,9 @@ class Category < ApplicationRecord
   # Direct associations
 
   has_many   :items_in_category,
-             :class_name => "SaleItem",
-             :foreign_key => "item_category",
-             :dependent => :destroy
+             class_name: "SaleItem",
+             foreign_key: "item_category",
+             dependent: :destroy
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class Category < ApplicationRecord
   def to_s
     category_name
   end
-
 end

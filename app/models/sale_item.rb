@@ -2,13 +2,13 @@ class SaleItem < ApplicationRecord
   # Direct associations
 
   belongs_to :buyer,
-             :class_name => "User"
+             class_name: "User"
 
   belongs_to :seller,
-             :class_name => "User"
+             class_name: "User"
 
   belongs_to :category,
-             :foreign_key => "item_category"
+             foreign_key: "item_category"
 
   # Indirect associations
 
@@ -19,5 +19,4 @@ class SaleItem < ApplicationRecord
   def to_s
     sale_price
   end
-
 end

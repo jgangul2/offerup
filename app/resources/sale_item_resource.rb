@@ -24,5 +24,4 @@ class SaleItemResource < ApplicationResource
              foreign_key: :item_category
 
   # Indirect associations
-
 end

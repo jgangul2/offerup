@@ -1,15 +1,15 @@
 class SaleItemsController < ApplicationController
-  before_action :set_sale_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_sale_item, only: %i[show edit update destroy]
 
   # GET /sale_items
   def index
     @q = SaleItem.ransack(params[:q])
-    @sale_items = @q.result(:distinct => true).includes(:category, :seller, :buyer).page(params[:page]).per(10)
+    @sale_items = @q.result(distinct: true).includes(:category, :seller,
+                                                     :buyer).page(params[:page]).per(10)
   end
 
   # GET /sale_items/1
-  def show
-  end
+  def show; end
 
   # GET /sale_items/new
   def new
@@ -17,17 +17,16 @@ class SaleItemsController < ApplicationController
   end
 
   # GET /sale_items/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /sale_items
   def create
     @sale_item = SaleItem.new(sale_item_params)
 
     if @sale_item.save
-      message = 'SaleItem was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "SaleItem was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @sale_item, notice: message
       end
@@ -39,7 +38,7 @@ class SaleItemsController < ApplicationController
   # PATCH/PUT /sale_items/1
   def update
     if @sale_item.update(sale_item_params)
-      redirect_to @sale_item, notice: 'Sale item was successfully updated.'
+      redirect_to @sale_item, notice: "Sale item was successfully updated."
     else
       render :edit
     end
@@ -49,22 +48,23 @@ class SaleItemsController < ApplicationController
   def destroy
     @sale_item.destroy
     message = "SaleItem was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to sale_items_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sale_item
-      @sale_item = SaleItem.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def sale_item_params
-      params.require(:sale_item).permit(:sale_price, :item_status, :seller_id, :buyer_id, :item_title, :location, :photo_link, :item_description, :item_category)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sale_item
+    @sale_item = SaleItem.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def sale_item_params
+    params.require(:sale_item).permit(:sale_price, :item_status, :seller_id,
+                                      :buyer_id, :item_title, :location, :photo_link, :item_description, :item_category)
+  end
 end

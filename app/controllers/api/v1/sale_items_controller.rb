@@ -13,7 +13,7 @@ class Api::V1::SaleItemsController < Api::V1::GraphitiController
     sale_item = SaleItemResource.build(params)
 
     if sale_item.save
-      render jsonapi: sale_item, status: 201
+      render jsonapi: sale_item, status: :created
     else
       render jsonapi_errors: sale_item
     end
@@ -33,7 +33,7 @@ class Api::V1::SaleItemsController < Api::V1::GraphitiController
     sale_item = SaleItemResource.find(params)
 
     if sale_item.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: sale_item
     end
