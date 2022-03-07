@@ -1,0 +1,239 @@
+<% was_validated = sale_item.errors.any? %>
+
+<%= form_with(model: sale_item, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for sale_price start -->
+  <div class="form-group">
+    <% sale_price_class = "form-control" %>
+    <% sale_price_was_invalid = sale_item.errors.include?(:sale_price) %>
+
+    <% if was_validated %>
+      <% if sale_price_was_invalid %>
+        <% sale_price_class << " is-invalid" %>
+      <% else %>
+        <% sale_price_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :sale_price %>
+    <!-- Input for sale_price start -->
+    <%= f.number_field :sale_price, class: sale_price_class, placeholder: "Enter sale price" %>
+    <!-- Input for sale_price end -->
+    <% if sale_price_was_invalid %>
+      <% sale_item.errors.full_messages_for(:sale_price).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for sale_price end -->
+  <!-- Label and input for item_status start -->
+  <div class="form-group">
+    <% item_status_class = "form-control" %>
+    <% item_status_was_invalid = sale_item.errors.include?(:item_status) %>
+
+    <% if was_validated %>
+      <% if item_status_was_invalid %>
+        <% item_status_class << " is-invalid" %>
+      <% else %>
+        <% item_status_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :item_status %>
+    <!-- Input for item_status start -->
+    <%= f.text_field :item_status, class: item_status_class, placeholder: "Enter item status" %>
+    <!-- Input for item_status end -->
+    <% if item_status_was_invalid %>
+      <% sale_item.errors.full_messages_for(:item_status).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for item_status end -->
+  <!-- Label and input for seller_id start -->
+  <div class="form-group">
+    <% seller_class = "form-control" %>
+    <% seller_was_invalid = sale_item.errors.include?(:seller) %>
+
+    <% if was_validated %>
+      <% if seller_was_invalid %>
+        <% seller_class << " is-invalid" %>
+      <% else %>
+        <% seller_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :seller_id %>
+    <!-- Input for seller_id start -->
+    <%= f.number_field :seller_id, class: seller_class, placeholder: "Enter seller" %>
+    <!-- Input for seller_id end -->
+    <% if seller_was_invalid %>
+      <% sale_item.errors.full_messages_for(:seller).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for seller_id end -->
+  <!-- Label and input for buyer_id start -->
+  <div class="form-group">
+    <% buyer_class = "form-control" %>
+    <% buyer_was_invalid = sale_item.errors.include?(:buyer) %>
+
+    <% if was_validated %>
+      <% if buyer_was_invalid %>
+        <% buyer_class << " is-invalid" %>
+      <% else %>
+        <% buyer_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :buyer_id %>
+    <!-- Input for buyer_id start -->
+    <%= f.number_field :buyer_id, class: buyer_class, placeholder: "Enter buyer" %>
+    <!-- Input for buyer_id end -->
+    <% if buyer_was_invalid %>
+      <% sale_item.errors.full_messages_for(:buyer).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for buyer_id end -->
+  <!-- Label and input for item_title start -->
+  <div class="form-group">
+    <% item_title_class = "form-control" %>
+    <% item_title_was_invalid = sale_item.errors.include?(:item_title) %>
+
+    <% if was_validated %>
+      <% if item_title_was_invalid %>
+        <% item_title_class << " is-invalid" %>
+      <% else %>
+        <% item_title_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :item_title %>
+    <!-- Input for item_title start -->
+    <%= f.text_field :item_title, class: item_title_class, placeholder: "Enter item title" %>
+    <!-- Input for item_title end -->
+    <% if item_title_was_invalid %>
+      <% sale_item.errors.full_messages_for(:item_title).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for item_title end -->
+  <!-- Label and input for location start -->
+  <div class="form-group">
+    <% location_class = "form-control" %>
+    <% location_was_invalid = sale_item.errors.include?(:location) %>
+
+    <% if was_validated %>
+      <% if location_was_invalid %>
+        <% location_class << " is-invalid" %>
+      <% else %>
+        <% location_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :location %>
+    <!-- Input for location start -->
+    <%= f.text_field :location, class: location_class, placeholder: "Enter location" %>
+    <!-- Input for location end -->
+    <% if location_was_invalid %>
+      <% sale_item.errors.full_messages_for(:location).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for location end -->
+  <!-- Label and input for photo_link start -->
+  <div class="form-group">
+    <% photo_link_class = "form-control" %>
+    <% photo_link_was_invalid = sale_item.errors.include?(:photo_link) %>
+
+    <% if was_validated %>
+      <% if photo_link_was_invalid %>
+        <% photo_link_class << " is-invalid" %>
+      <% else %>
+        <% photo_link_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :photo_link %>
+    <!-- Input for photo_link start -->
+    <%= f.text_field :photo_link, class: photo_link_class, placeholder: "Enter photo link" %>
+    <!-- Input for photo_link end -->
+    <% if photo_link_was_invalid %>
+      <% sale_item.errors.full_messages_for(:photo_link).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for photo_link end -->
+  <!-- Label and input for item_description start -->
+  <div class="form-group">
+    <% item_description_class = "form-control" %>
+    <% item_description_was_invalid = sale_item.errors.include?(:item_description) %>
+
+    <% if was_validated %>
+      <% if item_description_was_invalid %>
+        <% item_description_class << " is-invalid" %>
+      <% else %>
+        <% item_description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :item_description %>
+    <!-- Input for item_description start -->
+    <%= f.text_field :item_description, class: item_description_class, placeholder: "Enter item description" %>
+    <!-- Input for item_description end -->
+    <% if item_description_was_invalid %>
+      <% sale_item.errors.full_messages_for(:item_description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for item_description end -->
+  <!-- Label and input for item_category start -->
+  <div class="form-group">
+    <% item_category_class = "form-control" %>
+    <% item_category_was_invalid = sale_item.errors.include?(:item_category) %>
+
+    <% if was_validated %>
+      <% if item_category_was_invalid %>
+        <% item_category_class << " is-invalid" %>
+      <% else %>
+        <% item_category_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :item_category %>
+    <!-- Input for item_category start -->
+    <%= f.number_field :item_category, class: item_category_class, placeholder: "Enter item category" %>
+    <!-- Input for item_category end -->
+    <% if item_category_was_invalid %>
+      <% sale_item.errors.full_messages_for(:item_category).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for item_category end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
